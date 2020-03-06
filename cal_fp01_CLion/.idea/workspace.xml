@@ -15,7 +15,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="290d7c33-0793-48dd-8fe0-f90c68134d06" name="Default Changelist" comment="" />
+    <list default="true" id="290d7c33-0793-48dd-8fe0-f90c68134d06" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Partitioning.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Partitioning.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CAL_FP01" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CAL_FP01" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/Partitioning.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/Partitioning.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/tests.cpp.o" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +34,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1Y7nHqMbOGXgVeShSONZ4j6ped8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -33,9 +46,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.has.clang-format" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cal_fp02_CLion" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,6 +105,9 @@
       <workItem from="1582302419053" duration="430000" />
       <workItem from="1582302927512" duration="5140000" />
       <workItem from="1582906100825" duration="6539000" />
+      <workItem from="1583234456049" duration="8115000" />
+      <workItem from="1583511537775" duration="170000" />
+      <workItem from="1583512211317" duration="11000" />
     </task>
     <servers />
   </component>
@@ -98,45 +115,90 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1167" height="200" key="GridCell.Tab.0.bottom" timestamp="1582912641581">
+    <state x="459" y="78" width="424" height="509" key="FileChooserDialogImpl" timestamp="1583512220069">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.0.bottom/67.27.1213.693@67.27.1213.693" timestamp="1582912641581" />
-    <state width="1167" height="200" key="GridCell.Tab.0.center" timestamp="1582912641580">
+    <state x="459" y="78" width="424" height="509" key="FileChooserDialogImpl/67.27.1213.693@67.27.1213.693" timestamp="1583512220069" />
+    <state width="1167" height="200" key="GridCell.Tab.0.bottom" timestamp="1583242908934">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.0.center/67.27.1213.693@67.27.1213.693" timestamp="1582912641580" />
-    <state width="1167" height="200" key="GridCell.Tab.0.left" timestamp="1582912641580">
+    <state width="1167" height="200" key="GridCell.Tab.0.bottom/67.27.1213.693@67.27.1213.693" timestamp="1583242908934" />
+    <state width="1167" height="200" key="GridCell.Tab.0.center" timestamp="1583242908934">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.0.left/67.27.1213.693@67.27.1213.693" timestamp="1582912641580" />
-    <state width="1167" height="200" key="GridCell.Tab.0.right" timestamp="1582912641580">
+    <state width="1167" height="200" key="GridCell.Tab.0.center/67.27.1213.693@67.27.1213.693" timestamp="1583242908934" />
+    <state width="1167" height="200" key="GridCell.Tab.0.left" timestamp="1583242908933">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.0.right/67.27.1213.693@67.27.1213.693" timestamp="1582912641580" />
-    <state width="1167" height="200" key="GridCell.Tab.1.bottom" timestamp="1582912641581">
+    <state width="1167" height="200" key="GridCell.Tab.0.left/67.27.1213.693@67.27.1213.693" timestamp="1583242908933" />
+    <state width="1167" height="200" key="GridCell.Tab.0.right" timestamp="1583242908934">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.1.bottom/67.27.1213.693@67.27.1213.693" timestamp="1582912641581" />
-    <state width="1167" height="200" key="GridCell.Tab.1.center" timestamp="1582912641581">
+    <state width="1167" height="200" key="GridCell.Tab.0.right/67.27.1213.693@67.27.1213.693" timestamp="1583242908934" />
+    <state width="1167" height="200" key="GridCell.Tab.1.bottom" timestamp="1583242908935">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.1.center/67.27.1213.693@67.27.1213.693" timestamp="1582912641581" />
-    <state width="1167" height="200" key="GridCell.Tab.1.left" timestamp="1582912641581">
+    <state width="1167" height="200" key="GridCell.Tab.1.bottom/67.27.1213.693@67.27.1213.693" timestamp="1583242908935" />
+    <state width="1167" height="200" key="GridCell.Tab.1.center" timestamp="1583242908935">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.1.left/67.27.1213.693@67.27.1213.693" timestamp="1582912641581" />
-    <state width="1167" height="200" key="GridCell.Tab.1.right" timestamp="1582912641581">
+    <state width="1167" height="200" key="GridCell.Tab.1.center/67.27.1213.693@67.27.1213.693" timestamp="1583242908935" />
+    <state width="1167" height="200" key="GridCell.Tab.1.left" timestamp="1583242908935">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state width="1167" height="200" key="GridCell.Tab.1.right/67.27.1213.693@67.27.1213.693" timestamp="1582912641581" />
+    <state width="1167" height="200" key="GridCell.Tab.1.left/67.27.1213.693@67.27.1213.693" timestamp="1583242908935" />
+    <state width="1167" height="200" key="GridCell.Tab.1.right" timestamp="1583242908935">
+      <screen x="67" y="27" width="1213" height="693" />
+    </state>
+    <state width="1167" height="200" key="GridCell.Tab.1.right/67.27.1213.693@67.27.1213.693" timestamp="1583242908935" />
     <state x="165" y="2" key="SettingsEditor" timestamp="1582302878329">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
     <state x="165" y="2" key="SettingsEditor/67.27.1213.693@67.27.1213.693" timestamp="1582302878329" />
-    <state x="335" y="113" key="com.intellij.ide.util.TipDialog" timestamp="1582906101111">
+    <state x="335" y="63" key="com.intellij.ide.util.TipDialog" timestamp="1583511541032">
       <screen x="67" y="27" width="1213" height="693" />
     </state>
-    <state x="335" y="113" key="com.intellij.ide.util.TipDialog/67.27.1213.693@67.27.1213.693" timestamp="1582906101111" />
+    <state x="335" y="63" key="com.intellij.ide.util.TipDialog/67.27.1213.693@67.27.1213.693" timestamp="1583511541032" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>20</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>21</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>22</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>26</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>27</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>29</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Tests/Partitioning.cpp</url>
+          <line>33</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
