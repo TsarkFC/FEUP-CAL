@@ -25,7 +25,7 @@ void compareSudokus(int in[9][9], int out[9][9])
     }
 }
 
-
+/*
 TEST(CAL_FP02, testSudokuAlreadySolved) {
     int in[9][9] =
             {{8, 6, 2, 3, 4, 1, 7, 9, 5},
@@ -52,7 +52,7 @@ TEST(CAL_FP02, testSudokuAlreadySolved) {
 
 }
 
-/*
+
 TEST(CAL_FP02, testSudokuNoneBackStepsRequired) {
     int in[9][9] =
             {{8, 6, 0, 0, 0, 0, 0, 9, 0},
@@ -265,7 +265,7 @@ TEST(CAL_FP02, testSudokuImpossible) {
 
     compareSudokus(in, out);
 }
-
+*/
 
 TEST(CAL_FP02, testLabirinth) {
     int lab1[10][10] ={
@@ -294,11 +294,12 @@ TEST(CAL_FP02, testLabirinth) {
 
     Labirinth l1(lab1);
     EXPECT_EQ(l1.findGoal(1, 1),true);
+    l1.printLabirinth();
 
 
     Labirinth l2(lab2);
     EXPECT_EQ(l2.findGoal(1, 1),false);
 }
-*/
+
 
 

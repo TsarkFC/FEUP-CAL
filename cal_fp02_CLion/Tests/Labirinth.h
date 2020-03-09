@@ -6,6 +6,9 @@
 #ifndef LABIRINTH_H_
 #define LABIRINTH_H_
 
+#include <vector>
+
+using namespace std;
 
 class Labirinth {
 	int labirinth[10][10];
@@ -15,6 +18,7 @@ public:
 	Labirinth(int values[10][10]);
 	void printLabirinth();
 	bool findGoal(int x, int y);
+
 };
 
 #endif /* LABIRINTH_H_ */

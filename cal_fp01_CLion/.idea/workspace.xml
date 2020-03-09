@@ -16,14 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290d7c33-0793-48dd-8fe0-f90c68134d06" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Partitioning.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Partitioning.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CAL_FP01" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CAL_FP01" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/Partitioning.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/Partitioning.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CAL_FP01.dir/Tests/tests.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/Labirinth.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/Labirinth.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/Labirinth.h" beforeDir="false" afterPath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/Labirinth.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cal_fp02_CLion/Tests/tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.has.clang-format" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cal_fp02_CLion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -108,6 +103,7 @@
       <workItem from="1583234456049" duration="8115000" />
       <workItem from="1583511537775" duration="170000" />
       <workItem from="1583512211317" duration="11000" />
+      <workItem from="1583517442782" duration="19000" />
     </task>
     <servers />
   </component>
