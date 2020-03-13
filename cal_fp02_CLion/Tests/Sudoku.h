@@ -7,6 +7,7 @@
 #define SUDOKU_H_
 
 #include <string>
+#include <vector>
 #include <sstream>
 #include <iostream>
 #include <stdio.h>
@@ -72,6 +73,12 @@ public:
 	 * Imprime o Sudoku.
 	 */
 	void print();
+
+	/**
+	 * Verifica possibilidade de preenchimento do sudoku
+	 * @return ídices das coordenadas com menor possibilidades
+	 */
+	vector<int> checkPossibilities();
 };
 
 #endif /* SUDOKU_H_ */

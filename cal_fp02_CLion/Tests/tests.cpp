@@ -25,7 +25,7 @@ void compareSudokus(int in[9][9], int out[9][9])
     }
 }
 
-/*
+
 TEST(CAL_FP02, testSudokuAlreadySolved) {
     int in[9][9] =
             {{8, 6, 2, 3, 4, 1, 7, 9, 5},
@@ -86,10 +86,12 @@ TEST(CAL_FP02, testSudokuNoneBackStepsRequired) {
     for (int a = 0; a < 9; a++)
     sout[i][a] = res[i][a];
 
+    s.print();
+
     compareSudokus(out, sout);
 }
 
-
+/*
 TEST(CAL_FP02, testSudokuSomeBackStepsRequired) {
     int in[9][9] =
             {{7, 0, 5, 2, 6, 3, 4, 0, 9},
