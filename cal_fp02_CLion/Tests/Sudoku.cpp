@@ -95,54 +95,76 @@ bool Sudoku::isComplete()
 bool Sudoku::solve()
 {
     if (isComplete()) return true;
-    vector<int> indexes = checkPossibilities();
 
-    if (indexes[0] == -1) return false;
+    /***Greedy -> check easiest option***/
 
-    numbers[indexes[0]][indexes[1]] = indexes[2];
-
-    solve();
-}
-
-vector<int> Sudoku::checkPossibilities() {
-    //Greedy element -> check easiest option
     int array[9][9];
+    int nums[9][9][9];
 
-    for (int i = 0; i < 9; i++){ //array initialization
+    //array initialization
+    for (int i = 0; i < 9; i++){
         for (int j = 0; j < 9; j++){
             array[i][j] = 0;
         }
     }
 
-    vector<int> ret = {-1,-1, 0};
-    int min = 11;
-    int guess;
-
-    for (int row = 0; row < 9; row++){ //find possibilities
-        for (int col = 0; col < 9; col++){
-            if (numbers[row][col] != 0) continue;
-            for (int n = 0; n < 10; n++){
-                if (lineHasNumber[row][n] | columnHasNumber[col][n] | block3x3HasNumber[row][col][n]) continue;
-                array[row][col]++;
-                guess = n;
+    //nums initialization
+    for (int i = 0; i < 9; i++){
+        for (int j = 0; j < 9; j++){
+            for (int k = 0; k < 9; k++){
+                nums[i][j][k] = 0;
             }
-
-            if (array[row][col] < min && array[row][col] > 0) {
-                ret[0] = row;
-                ret[1] = col;
-                ret[2] = guess;
-                lineHasNumber[row][guess] = true;
-                columnHasNumber[col][guess] = true;
-                block3x3HasNumber[row][col][guess] = true;
-            }
-
         }
     }
 
-    return ret;
+    int min[3];
+    min[0] = 11;
+
+    //find possibilities
+    for (int row = 0; row < 9; row++) {
+        for (int col = 0; col < 9; col++) {
+            if (numbers[row][col] != 0) continue;
+
+            //space is empty
+            for (int n = 1; n <= 9; n++) {
+                if (lineHasNumber[row][n] | columnHasNumber[col][n] | block3x3HasNumber[row/3][col/3][n]) continue;
+                array[row][col]++;
+                nums[row][col][n-1] = n;
+            }
+            if (array[row][col] < min[0] && array[row][col] > 0){
+                min[0] = array[row][col];
+                min[1] = row;
+                min[2] = col;
+            }
+        }
+
+    }
+
+    //fill sudoku
+    int row = min[1], col = min[2], num;
+
+    for (int n = 1; n <= 9; n++){
+        if (nums[row][col][n-1] != 0){
+            num = n;
+            numbers[row][col] = n;
+            lineHasNumber[row][n] = true;
+            columnHasNumber[col][n] = true;
+            block3x3HasNumber[row / 3][col / 3][n] = true;
+
+            countFilled++;
+
+            if (solve()) return true;
+
+            numbers[row][col] = 0;
+            lineHasNumber[row][num] = false;
+            columnHasNumber[col][num] = false;
+            block3x3HasNumber[row / 3][col / 3][num] = false;
+
+            countFilled--;
+        }
+    }
+    return false;
 }
-
-
 
 /**
  * Imprime o Sudoku.

@@ -86,12 +86,10 @@ TEST(CAL_FP02, testSudokuNoneBackStepsRequired) {
     for (int a = 0; a < 9; a++)
     sout[i][a] = res[i][a];
 
-    s.print();
-
     compareSudokus(out, sout);
 }
 
-/*
+
 TEST(CAL_FP02, testSudokuSomeBackStepsRequired) {
     int in[9][9] =
             {{7, 0, 5, 2, 6, 3, 4, 0, 9},
@@ -124,6 +122,8 @@ TEST(CAL_FP02, testSudokuSomeBackStepsRequired) {
     for (int i = 0; i < 9; i++)
     for (int a = 0; a < 9; a++)
     sout[i][a] = res[i][a];
+
+    s.print();
 
     compareSudokus(out, sout);
 }
@@ -256,6 +256,7 @@ TEST(CAL_FP02, testSudokuImpossible) {
              {3, 2, 0, 0, 0, 0, 0, 0, 6}};
 
     Sudoku s(in);
+            break;
     EXPECT_EQ(s.solve(), false);
 
     int out[9][9];
@@ -267,7 +268,7 @@ TEST(CAL_FP02, testSudokuImpossible) {
 
     compareSudokus(in, out);
 }
-*/
+
 
 TEST(CAL_FP02, testLabirinth) {
     int lab1[10][10] ={
@@ -296,8 +297,6 @@ TEST(CAL_FP02, testLabirinth) {
 
     Labirinth l1(lab1);
     EXPECT_EQ(l1.findGoal(1, 1),true);
-    l1.printLabirinth();
-
 
     Labirinth l2(lab2);
     EXPECT_EQ(l2.findGoal(1, 1),false);
