@@ -256,7 +256,7 @@ TEST(CAL_FP02, testSudokuImpossible) {
              {3, 2, 0, 0, 0, 0, 0, 0, 6}};
 
     Sudoku s(in);
-    
+
     EXPECT_EQ(s.solve(), false);
 
     int out[9][9];
