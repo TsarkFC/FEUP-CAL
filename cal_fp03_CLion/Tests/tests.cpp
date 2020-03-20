@@ -163,41 +163,41 @@ int testNPRandConstX(int size, string name, double dmin, NP_FUNC func, string al
 void testNearestPoints(NP_FUNC func, string alg) {
     cout << "algorithm; data set; time elapsed (ms); distance; point1; point2" << endl;
     int maxTime = 10000;
-    if ( testNPFile("Pontos8", 11841.3, func, alg) > maxTime)
+    if ( testNPFile("../Pontos8", 11841.3, func, alg) > maxTime)
         return;
-    if ( testNPFile("Pontos64", 556.066, func, alg) > maxTime)
+    if ( testNPFile("../Pontos64", 556.066, func, alg) > maxTime)
         return;
-    if (testNPFile("Pontos1k", 100.603, func, alg) > maxTime)
+    if (testNPFile("../Pontos1k", 100.603, func, alg) > maxTime)
         return;
-    if (testNPFile("Pontos16k", 13.0384, func, alg) > maxTime)
+    if (testNPFile("../Pontos16k", 13.0384, func, alg) > maxTime)
         return;
-    if (testNPFile("Pontos32k", 1.0, func, alg) > maxTime)
+    if (testNPFile("../Pontos32k", 1.0, func, alg) > maxTime)
         return;
-    if (testNPFile("Pontos64k", 1.0, func, alg) > maxTime)
+    if (testNPFile("../Pontos64k", 1.0, func, alg) > maxTime)
         return;
-    if (testNPFile("Pontos128k", 0.0, func, alg) > maxTime)
+    if (testNPFile("../Pontos128k", 0.0, func, alg) > maxTime)
         return;
-    if (testNPRand(0x40000, "Pontos256k", 1.0, func, alg) > maxTime)
+    if (testNPRand(0x40000, "../Pontos256k", 1.0, func, alg) > maxTime)
         return;
-    if (testNPRand(0x80000, "Pontos512k",  1.0, func, alg) > maxTime)
+    if (testNPRand(0x80000, "../Pontos512k",  1.0, func, alg) > maxTime)
         return;
-    if ( testNPRand(0x100000, "Pontos1M",  1.0, func, alg) > maxTime)
+    if ( testNPRand(0x100000, "../Pontos1M",  1.0, func, alg) > maxTime)
         return;
-    if ( testNPRand(0x200000, "Pontos2M",  1.0, func, alg) > maxTime)
+    if ( testNPRand(0x200000, "../Pontos2M",  1.0, func, alg) > maxTime)
         return;
-    if (testNPRandConstX(0x8000, "Pontos32kConstX", 1.0, func, alg) > maxTime)
+    if (testNPRandConstX(0x8000, "../Pontos32kConstX", 1.0, func, alg) > maxTime)
         return;
-    if (testNPRandConstX(0x10000, "Pontos64kConstX", 1.0, func, alg) > maxTime)
+    if (testNPRandConstX(0x10000, "../Pontos64kConstX", 1.0, func, alg) > maxTime)
         return;
-    if (testNPRandConstX(0x20000, "Pontos128kConstX", 1.0, func, alg) > maxTime)
+    if (testNPRandConstX(0x20000, "../Pontos128kConstX", 1.0, func, alg) > maxTime)
         return;
-    if (testNPRandConstX(0x40000, "Pontos256kConstX", 1.0, func, alg) > maxTime)
+    if (testNPRandConstX(0x40000, "../Pontos256kConstX", 1.0, func, alg) > maxTime)
         return;
-    if (testNPRandConstX(0x80000, "Pontos512kConstX",  1.0, func, alg) > maxTime)
+    if (testNPRandConstX(0x80000, "../Pontos512kConstX",  1.0, func, alg) > maxTime)
         return;
-    if ( testNPRandConstX(0x100000, "Pontos1MConstX",  1.0, func, alg) > maxTime)
+    if ( testNPRandConstX(0x100000, "../Pontos1MConstX",  1.0, func, alg) > maxTime)
         return;
-    if ( testNPRandConstX(0x200000, "Pontos2MConstX",  1.0, func, alg) > maxTime)
+    if ( testNPRandConstX(0x200000, "../Pontos2MConstX",  1.0, func, alg) > maxTime)
         return;
 }
 
@@ -216,12 +216,10 @@ TEST(CAL_FP03, testNP_DC) {
     testNearestPoints(nearestPoints_DC, "Divide and conquer");
 }
 
-
 TEST(CAL_FP03, testNP_DC_2Threads) {
     setNumThreads(2);
     testNearestPoints(nearestPoints_DC_MT, "Divide and conquer with 2 threads");
 }
-
 
 TEST(CAL_FP03, testNP_DC_4Threads) {
     setNumThreads(4);

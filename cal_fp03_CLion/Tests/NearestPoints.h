@@ -25,6 +25,6 @@ void setNumThreads(int num);
 // Pointer to function that computes nearest points
 typedef Result (*NP_FUNC)(vector<Point> &vp);
 
-
+Result min(Result& A, Result& B);
 
 #endif
