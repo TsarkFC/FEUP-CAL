@@ -357,9 +357,19 @@ int Graph<T>::maxNewChildren(const T & source, T &inf) const {
 
 template <class T>
 bool Graph<T>::isDAG() const {
-	// TODO (9 lines, mostly reused)
-	// HINT: use the auxiliary field "processing" to mark the vertices in the stack.
-	return true;
+    bool ret;
+    for (auto it = vertexSet.begin(); it != vertexSet.end(); it++){
+        (*it)->visited = false;
+        (*it)->processing = false;
+    }
+    for (auto it = vertexSet.begin(); it != vertexSet.end(); it++){
+        if (!(*it)->visited) {
+            (*it)->processing = true;
+            if (!dfsIsDAG(*it)) return ret;
+            (*it)->processing = false;
+        }
+    }
+    return true;
 }
 
 /**
@@ -368,7 +378,17 @@ bool Graph<T>::isDAG() const {
  */
 template <class T>
 bool Graph<T>::dfsIsDAG(Vertex<T> *v) const {
-	// TODO (12 lines, mostly reused)
+    v->visited = true;
+
+    for (auto it = v->adj.begin(); it != v->adj.end(); it++){
+        if ((*it).dest->processing) return false;
+        if (!(*it).dest->visited) {
+            (*it).dest->processing = true;
+            if (!dfsIsDAG((*it).dest)) return false;
+            (*it).dest->processing = false;
+        }
+    }
+
 	return true;
 }
 
