@@ -235,7 +235,41 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
 
 template<class T>
 void Graph<T>::bellmanFordShortestPath(const T &orig) {
-	// TODO
+    Vertex<T>* s = findVertex(orig);
+
+    for (auto it = vertexSet.begin(); it != vertexSet.end(); it++){
+        (*it)->dist = DBL_MAX;
+        (*it)->path = NULL;
+    }
+
+    queue<Vertex<T>*> q;
+    s->dist = 0;
+    q.push(s);
+
+    while (!q.empty()) {
+        Vertex<T>* v = q.front();
+        q.pop();
+        for (Edge<T> w : v->adj) {
+            if (w.dest->getDist() > v->getDist() + w.weight) {
+                w.dest->dist = v->getDist() + w.weight;
+                w.dest->path = v;
+                q.push(w.dest);
+            }
+        }
+    }
+
+    q.push(s);
+    while (!q.empty()) {
+        Vertex<T>* v = q.front();
+        q.pop();
+        for (Edge<T> w : v->adj) {
+            if (w.dest->dist > v->dist + w.weight) {
+                cout << "there are cycles of negative weight" << endl;
+                return;
+            }
+        }
+    }
+
 }
 
 
