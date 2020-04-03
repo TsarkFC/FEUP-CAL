@@ -9,6 +9,7 @@
 #include <list>
 #include <limits>
 #include <cmath>
+#include <stack>
 #include "MutablePriorityQueue.h"
 
 using namespace std;
@@ -100,6 +101,10 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
 template <class T>
 class Graph {
 	vector<Vertex<T> *> vertexSet;    // vertex set
+	vector<vector<double>> adjMatrix;
+    vector<vector<double>> minMatrix;
+    vector<vector<double>> preMatrix;
+
 
 public:
 	Vertex<T> *findVertex(const T &in) const;
@@ -109,14 +114,14 @@ public:
 	vector<Vertex<T> *> getVertexSet() const;
 
 	// Fp05 - single source
-	void unweightedShortestPath(const T &s);    //TODO...
-	void dijkstraShortestPath(const T &s);      //TODO...
-	void bellmanFordShortestPath(const T &s);   //TODO...
-	vector<T> getPathTo(const T &dest) const;   //TODO...
+	void unweightedShortestPath(const T &s);
+	void dijkstraShortestPath(const T &s);
+	void bellmanFordShortestPath(const T &s);
+	vector<T> getPathTo(const T &dest) const;
 
 	// Fp05 - all pairs
 	void floydWarshallShortestPath();   //TODO...
-	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;   //TODO...
+	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;
 
 };
 
@@ -295,14 +300,60 @@ vector<T> Graph<T>::getPathTo(const T &dest) const{
 
 template<class T>
 void Graph<T>::floydWarshallShortestPath() {
-	// TODO
+    for (int i = 0; i <= vertexSet.size(); i++){
+        vector<double> temp;
+        for (int j = 0; j <= vertexSet.size(); j++){
+            if (j == i) temp.push_back(0);
+            else temp.push_back(DBL_MAX);
+        }
+        adjMatrix.push_back(temp);
+    }
+
+    for (Vertex<T>* v : vertexSet){
+        for (Edge<T> edge : v->adj){
+            adjMatrix[v->getInfo()][edge.dest->getInfo()] = edge.weight;
+        }
+    }
+
+    for (int i = 0; i <= vertexSet.size(); i++){
+        vector<double> temp;
+        for (int j = 0; j <= vertexSet.size(); j++){
+            temp.push_back(i);
+        }
+        preMatrix.push_back(temp);
+    }
+
+    minMatrix = adjMatrix;
+    vector<vector<double>> temp = minMatrix;
+
+    for (int k = 1; k <= vertexSet.size(); k++){
+        for (int i = 1; i <= vertexSet.size(); i++){
+            for (int j = 1; j <= vertexSet.size(); j++){
+                if (minMatrix[i][j] > minMatrix[i][k] + minMatrix[k][j]) {
+                    temp[i][j] = minMatrix[i][k] + minMatrix[k][j];
+                    preMatrix[i][j] = preMatrix[k][j];
+                }
+            }
+        }
+        minMatrix = temp;
+    }
 }
 
 template<class T>
 vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
-	vector<T> res;
-	// TODO
-	return res;
+    vector<T> res;
+
+    int num = dest;
+
+    while(num != orig){
+        res.push_back(num);
+
+        num = preMatrix[orig][num];
+    }
+    res.push_back(orig);
+    reverse(res.begin(), res.end());
+
+    return res;
 }
 
 
