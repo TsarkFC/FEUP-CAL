@@ -90,6 +90,7 @@ public:
 	Edge(Vertex<T> *o, Vertex<T> *d, double w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
+    bool operator<(Edge<T> e) const;
 
 	// Fp07
 	double getWeight() const;
@@ -142,6 +143,11 @@ public:
 	vector<Vertex<T>*> calculatePrim();
 	vector<Vertex<T>*> calculateKruskal();
 };
+
+template <class T>
+bool Edge<T>::operator<(Edge<T> e1) const {
+    return this->weight <= e1.weight;
+}
 
 
 template <class T>
@@ -376,6 +382,7 @@ bool Graph<T>::addBidirectionalEdge(const T &sourc, const T &dest, double w) {
 
 template <class T>
 bool Graph<T>::visitedEdge(Edge<T> edge) {
+    if (edge.selected) return true;
 
     Vertex<T>* s = edge.dest;
     Vertex<T>* d = edge.orig;
@@ -405,7 +412,9 @@ vector<Vertex<T>* > Graph<T>::calculatePrim() {
 
     while(!q.empty()) {
         auto v = q.extractMin();
+        //Iterate edges
         for (auto w = v->adj.begin(); w != v->adj.end(); w++){
+            //Verify if edge was visited in either direction
             if (!visitedEdge(*w)) {
                 w->selected = true;
                 if (w->dest->getDist() > w->weight) {
@@ -430,11 +439,44 @@ vector<Vertex<T>* > Graph<T>::calculatePrim() {
 	return vertexSet;
 }
 
-
-
 template <class T>
 vector<Vertex<T>*> Graph<T>::calculateKruskal() {
-	// TODO
+    //Contains list of edges taken into consideration. Irrelevant for testing reasons.
+    vector<Edge<T>> ret;
+    for (Vertex<T>* v : vertexSet){
+        v->dist = DBL_MAX;
+        v->path = NULL;
+        v->visited = false;
+        for (auto it = v->adj.begin(); it != v->adj.end(); it++) it->selected = false;
+    }
+
+    int visited = 1;
+    Edge<T> *min = new Edge<T>(NULL, NULL, 100);
+
+    while (visited != vertexSet.size()){
+        for (Vertex<T> *v : vertexSet){
+            for (auto w = v->adj.begin(); w != v->adj.end(); w++){
+                if (*w < *min){
+                    if ( !visitedEdge(*w)){
+                        *min = *w;
+                    }
+                }
+            }
+        }
+        Vertex<T>* s = min->orig;
+        Vertex<T>* d = min->dest;
+
+        s->path = d;
+        for (auto w = s->adj.begin(); w != s->adj.end(); w++){
+            if (w->dest->info != d->info) continue;
+            w->selected = true;
+        }
+
+        ret.push_back(*min);
+        min = new Edge<T>(NULL, NULL, 100);
+        visited++;
+    }
+
 	return vertexSet;
 }
 
