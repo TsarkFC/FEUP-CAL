@@ -138,6 +138,7 @@ public:
 
 	// Fp07 - minimum spanning tree
     bool addBidirectionalEdge(const T &sourc, const T &dest, double w);
+    bool visitedEdge(Edge<T> edge);
 	vector<Vertex<T>*> calculatePrim();
 	vector<Vertex<T>*> calculateKruskal();
 };
@@ -366,15 +367,66 @@ vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
 /**************** Minimum Spanning Tree  ***************/
 template <class T>
 bool Graph<T>::addBidirectionalEdge(const T &sourc, const T &dest, double w) {
-    // TODO
+    Vertex<T>* first = findVertex(sourc);
+    Vertex<T>* sec = findVertex(dest);
+    first->addEdge(sec, w);
+    sec->addEdge(first, w);
     return false;
 }
 
+template <class T>
+bool Graph<T>::visitedEdge(Edge<T> edge) {
 
+    Vertex<T>* s = edge.dest;
+    Vertex<T>* d = edge.orig;
+
+    for (Edge<T> e : s->adj){
+        if (e.dest->info != d->info) continue;
+        return e.selected;
+    }
+    return false;
+}
 
 template <class T>
 vector<Vertex<T>* > Graph<T>::calculatePrim() {
-	// TODO
+    MutablePriorityQueue<Vertex<T>> q;
+
+    for (Vertex<T>* v : vertexSet){
+        v->dist = DBL_MAX;
+        v->path = NULL;
+        v->visited = false;
+        for (auto it = v->adj.begin(); it != v->adj.end(); it++) it->selected = false;
+    }
+
+    Vertex<T>* v = vertexSet[0];
+    v->dist = 0;
+    v->visited = true;
+    q.insert(v);
+
+    while(!q.empty()) {
+        auto v = q.extractMin();
+        for (auto w = v->adj.begin(); w != v->adj.end(); w++){
+            if (!visitedEdge(*w)) {
+                w->selected = true;
+                if (w->dest->getDist() > w->weight) {
+                    if (w->dest->visited) {
+                        if (w->weight < w->dest->dist) {
+                            w->dest->dist = w->weight;
+                            w->dest->path = v;
+                        }
+                        q.decreaseKey(w->dest);
+                    }
+                    else {
+                        q.insert(w->dest);
+                        w->dest->dist = w->weight;
+                        w->dest->path = v;
+                        w->dest->visited = true;
+                    }
+                }
+            }
+        }
+    }
+
 	return vertexSet;
 }
 
