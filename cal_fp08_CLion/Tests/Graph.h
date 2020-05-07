@@ -109,7 +109,11 @@ public:
 	Vertex<T> *addVertex(const T &in);
 	Edge<T> *addEdge(const T &sourc, const T &dest, double c, double f=0);
 	void fordFulkerson(T source, T target);
-
+    void ResetFlows();
+    bool FindAugmentationPath(T source, T target);
+    void TestAndVisit(queue<Vertex<T>*> &q, Edge<T>* e, Vertex<T>* w, double residual);
+    double FindMinResidualAlongPath(T source, T target);
+    void AugmentFlowAlongPath(T source, T target, double f);
 };
 
 template <class T>
@@ -156,7 +160,96 @@ vector<Vertex<T> *> Graph<T>::getVertexSet() const {
  */
 template <class T>
 void Graph<T>::fordFulkerson(T source, T target) {
+    ResetFlows();
+    double tot = 0;
+    double f;
 
+    while (FindAugmentationPath(source, target)){
+        f = FindMinResidualAlongPath(source, target);
+        AugmentFlowAlongPath(source, target, f);
+        tot += f;
+    }
+    //return tot;
+}
+
+template<class T>
+void Graph<T>::ResetFlows() {
+    for (Vertex<T>* v : vertexSet)
+        for (Edge<T>* e : v->outgoing)
+            e->flow = 0;
+}
+
+template<class T>
+bool Graph<T>::FindAugmentationPath(T source, T target) {
+    for (Vertex<T>* v : vertexSet)
+        v->visited = false;
+
+    Vertex<T>* v;
+    Vertex<T>* s = findVertex(source);
+    Vertex<T>* t = findVertex(target);
+    s->visited = true;
+    queue<Vertex<T>*> q;
+    q.push(s);
+
+    while (!q.empty() && !t->visited){
+        v = q.front();
+        q.pop();
+        for (Edge<T>* e : v->outgoing)
+            TestAndVisit(q, e, e->dest, e->capacity - e->flow);
+        for (Edge<T>* e : v->incoming)
+            TestAndVisit(q, e, e->orig, e->flow);
+    }
+
+    return t->visited;
+}
+
+template<class T>
+void Graph<T>::TestAndVisit(queue<Vertex<T> *> &q, Edge<T> *e, Vertex<T> *w, double residual) {
+    if (!w->visited && residual>0){
+        w->visited = true;
+        w->path = e;
+        q.push(w);
+    }
+}
+
+template<class T>
+double Graph<T>::FindMinResidualAlongPath(T source, T target) {
+    double f = DBL_MAX;
+    Vertex<T>* v = findVertex(target);
+    Vertex<T>* s = findVertex(source);
+
+    while(v != s){
+        Edge<T>* e = v->path;
+        if (e->dest == v){
+            if (e->capacity - e->flow < f)
+                f = e->capacity - e->flow;
+            v = e->orig;
+        }
+        else{
+            if (e->flow < f)
+                f = e->flow;
+            v = e->dest;
+        }
+    }
+    return f;
+}
+
+template<class T>
+void Graph<T>::AugmentFlowAlongPath(T source, T target, double f) {
+    Vertex<T>* v = findVertex(target);
+    Vertex<T>* s = findVertex(source);
+
+    while (v != s){
+        Edge<T>* e = v->path;
+        if (e->dest == v){
+            e->flow += f;
+            v = e->orig;
+        }
+        else{
+            e->flow -= f;
+            v = e->dest;
+        }
+    }
 }
 
 
