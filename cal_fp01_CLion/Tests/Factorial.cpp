@@ -11,21 +11,6 @@ int factorialRecurs(int n) {
 }
 
 int factorialDinam(int n){
-    /*SOLUÇÃO NÃO É PROGRAMAÇÃO DINÂMICA
-    int ret = 1;
-
-    while (n>1){
-        ret *= n;
-        n -= 1;
-    }
-
-    return ret;*/
-
-    //------------------------------------------------------------------------------------------
-
-    /*Esta solução já se trata de um caso de programação dinâmica uma vez que parte do caso base
-     * para um caso mais complexo*/
-
     if (n == 0 || n == 1) return 1;
 
     int num = 1;
